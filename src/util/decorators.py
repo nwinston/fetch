@@ -6,6 +6,13 @@ from ..timestamp_exception import TimestampException
 from ..database.database_exception import DatabaseException
 
 def db_error_handler(func):
+    """
+    Decorator for handling database errors.
+
+    Raises:
+        e: Any unhadled exception.
+        DatabaseException: An exception from the database.
+    """
     @functools.wraps(func)
     def inner(*args, **kwargs):
         try:
