@@ -1,5 +1,3 @@
-import datetime
-from multiprocessing.sharedctypes import Value
 from flask import Flask, jsonify, request, make_response
 from src.api_handler import APIHandler
 
@@ -22,8 +20,8 @@ def create_user(user):
 @app.route("/api/<user>/spend", methods=["PUT"])
 def spend_points(user):
     points = int(request.form['points'])
-    if points < 0:
-        return make_response(jsonify(response='Points cannot be negative', success=False), 400)
+    if points <= 0:
+        return make_response(jsonify(response='Points must be positive', success=False), 400)
     
     return handler.spend_points(user, points)
 
