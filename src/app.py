@@ -7,9 +7,9 @@ handler = APIHandler()
 
 @app.route("/api/<user>/transaction", methods=["POST"])
 def create_transaction(user):
-    payer = request.form['payer']
-    points = int(request.form['points'])
-    timestamp = request.form['timestamp']
+    payer = request.json['payer']
+    points = int(request.json['points'])
+    timestamp = request.json['timestamp']
     return handler.create_transaction(user, payer, points, timestamp)
         
 
@@ -19,7 +19,7 @@ def create_user(user):
 
 @app.route("/api/<user>/spend", methods=["PUT"])
 def spend_points(user):
-    points = int(request.form['points'])
+    points = int(request.json['points'])
     if points <= 0:
         return make_response(jsonify(response='Points must be positive', success=False), 400)
     
