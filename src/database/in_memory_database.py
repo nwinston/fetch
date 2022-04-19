@@ -54,7 +54,7 @@ class InMemoryDatabase(database.Database):
         Adds a transaction to the database.
 
         Args:
-            user (str): 
+            user (str): The user
             payer (str): The payer who is providing the points.
             points (int): The number of points being provided.
             timestamp (datetime.datetime): The timestamp of the transaction.
@@ -72,7 +72,7 @@ class InMemoryDatabase(database.Database):
     @db_error_handler
     def create_user(self, user: str) -> None:
         """
-        Creates and regisiteres a user to the database.
+        Creates and regisiters a user to the database.
 
         Args:
             user (str): The user to create.

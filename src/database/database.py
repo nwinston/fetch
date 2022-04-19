@@ -4,10 +4,7 @@ from typing import Dict
 class Database(ABC):
     """
     Abstract interface for a database that can be used to store and retrieve
-    user point totals
-
-    Args:
-        ABC (_type_): _description_
+    user point totals and transactions.
     """
     def __init__(self):
         pass
@@ -18,7 +15,7 @@ class Database(ABC):
         Adds a transaction to the database.
 
         Args:
-            user (str): 
+            user (str): The user
             payer (str): The payer who is providing the points.
             points (int): The number of points being provided.
             timestamp (datetime.datetime): The timestamp of the transaction.
@@ -51,9 +48,24 @@ class Database(ABC):
 
     @abstractmethod
     def get_total_points(self, user: str) -> int:
+        """
+        Returns the total points for the given user.
+
+        Args:
+            user (str): The user
+
+        Returns:
+            int: Points for the given user
+        """
         pass
 
     @abstractmethod
     def create_user(self, user: str) -> None:
+        """
+        Creates and regisiters a user to the database.
+
+        Args:
+            user (str): The user to create.
+        """
         pass
     
