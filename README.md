@@ -46,7 +46,7 @@ Will return
 
   ```bash
     curl -L -X POST 'localhost:5000/api/user1/transaction' -H 'Content-Type: application/json' \
-    --data-raw {"timestamp":"2020-10-31T11:00:00Z", "payer":"UNILEVER", "points":"20000"} 
+    --data-raw '{"timestamp":"2020-10-31T11:00:00Z", "payer":"UNILEVER", "points":"20000"}' 
    ```
 
 Will return
