@@ -32,7 +32,7 @@ This endpoint will create a new user.
 ```bash
 curl -XPOST 'localhost:5000/api/user1/create'
 ```
-Will return
+Will return a response in the form of
 
 ```json
 {"response":{},"success":true}
@@ -49,7 +49,7 @@ Will return
     --data-raw '{"timestamp":"2020-10-31T11:00:00Z", "payer":"UNILEVER", "points":"20000"}' 
    ```
 
-Will return
+Will return a response in the form of
 ```json
 {"response":{},"success":true}
 ```
@@ -60,7 +60,7 @@ This endpoint will spend points for a user.
 curl -L -X PUT localhost:5000/api/user1/spend -H 'Content-Type: application/json' --data-raw '{"points": "5000"}'
 ```
 
-Will return
+Will return a response in the form of
 ```json
 {
     "response": {
@@ -80,7 +80,7 @@ If itemized is true, it will return the balances for each payer. If false, it wi
 curl -L -X GET 'localhost:5000/api/user1/points?itemized=true'
 ```
 
-Will return
+Will return a response in the form of
 
 ```json
 {
