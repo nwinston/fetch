@@ -26,6 +26,8 @@ This will start the web server on port 5000.
 
 The web server exposes the following endpoints:
 
+NOTE: All endpoints take a user as a path parameter.
+
 ## POST /api/\<user\>/create
 This endpoint will create a new user.
 
@@ -43,6 +45,8 @@ Will return a response in the form of
 ## POST /api/\<user\>/transaction
 
   This endpoint will create a new transaction.
+  
+  It takes timestamp, payer, and points as body parameters.
 
   ```bash
     curl -L -X POST 'localhost:5000/api/user1/transaction' -H 'Content-Type: application/json' \
@@ -55,7 +59,7 @@ Will return a response in the form of
 ```
 
 ## POST /api/\<user\>/spend
-This endpoint will spend points for a user.
+This endpoint will spend points for a user. It takes the number of points to spend as a body parameter.
 ```bash
 curl -L -X PUT localhost:5000/api/user1/spend -H 'Content-Type: application/json' --data-raw '{"points": "5000"}'
 ```
@@ -74,10 +78,10 @@ Will return a response in the form of
 ## GET /api/\<user\>/points
 
 This endpoint will return the points for a user. It accepts a query parameter itemized.
-If itemized is true, it will return the balances for each payer. If false, it will return the total points.
+If itemized is 1, it will return the balances for each payer. If 0, it will return the total points.
 
 ```bash
-curl -L -X GET 'localhost:5000/api/user1/points?itemized=true'
+curl -L -X GET 'localhost:5000/api/user1/points?itemized='
 ```
 
 Will return a response in the form of
