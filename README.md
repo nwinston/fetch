@@ -81,7 +81,7 @@ This endpoint will return the points for a user. It accepts a query parameter it
 If itemized is 1, it will return the balances for each payer. If 0, it will return the total points.
 
 ```bash
-curl -L -X GET 'localhost:5000/api/user1/points?itemized=0'
+curl -L -X GET 'localhost:5000/api/user1/points?itemized=1'
 ```
 
 Will return a response in the form of
